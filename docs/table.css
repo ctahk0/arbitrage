@@ -1,0 +1,222 @@
+.mBTC {
+    font-size: 0.7em;
+    font-weight: 200;
+    text-transform: none;
+}
+
+.container {}
+
+.container body {
+    cursor: default;
+    font-size: 14px;
+    line-height: 21px;
+    font-family: "Segoe UI", "Helvetica", Garuda, Arial, sans-serif;
+    padding: 18px 18px 18px 18px;
+}
+
+.container ul {
+    margin-bottom: 14px;
+    list-style: none;
+}
+
+.container li {
+    width: 234px;
+    height: 30px;
+    margin: 0 0 7px 0;
+}
+
+.container li a {
+    display: block;
+    width: 234px;
+    height: 30px;
+    margin: 0 0 7px 0;
+    background: #F7F5F2;
+    font-size: 18px;
+    color: #333;
+    padding: 5px 0 0 20px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #EFEFEF;
+}
+
+
+
+
+/* LIST #5 */
+
+#list5, #balance {
+    color: #61A8DC;
+}
+
+#list5 ol {
+    font-size: 18px;
+}
+
+#list5 ol li {}
+
+#list5 ol li ol {
+    list-style-image: url("../images/nested.png");
+    padding: 0px 0 5px 18px;
+    font-size: 15px;
+}
+
+#list5 ol li ol li {
+    color: #F5876E;
+    height: 15px;
+    margin-left: 10px;
+}
+
+h1, h2 {
+    text-shadow: 0 1px 0 #ccc,
+    0 2px 0 #c9c9c9,
+    0 3px 0 #bbb,
+    0 4px 0 #b9b9b9,
+    0 5px 0 #aaa,
+    0 6px 1px rgba(0, 0, 0, .1),
+    0 0 5px rgba(0, 0, 0, .1),
+    0 1px 3px rgba(0, 0, 0, .3),
+    0 3px 5px rgba(0, 0, 0, .2),
+    0 5px 10px rgba(0, 0, 0, .25),
+    0 10px 10px rgba(0, 0, 0, .2),
+    0 20px 20px rgba(0, 0, 0, .15);
+}
+table.bestTable {
+  font-family: Verdana, Geneva, sans-serif;
+  border: 6px solid #24943A;
+  background-color: #D4EED1;
+  width: 100%;
+  text-align: center;
+}
+table.bestTable td, table.bestTable th {
+  border: 1px solid #24943A;
+  padding: 3px 2px;
+}
+table.bestTable tbody td {
+  font-size: 13px;
+}
+table.bestTable thead {
+  background: #24943A;
+  background: -moz-linear-gradient(top, #5baf6b 0%, #3a9e4d 66%, #24943A 100%);
+  background: -webkit-linear-gradient(top, #5baf6b 0%, #3a9e4d 66%, #24943A 100%);
+  background: linear-gradient(to bottom, #5baf6b 0%, #3a9e4d 66%, #24943A 100%);
+  border-bottom: 0px solid #444444;
+}
+table.bestTable thead th {
+  font-size: 18px;
+  font-weight: bold;
+  color: #F0F0F0;
+  text-align: left;
+  border-left: 2px solid #24943A;
+}
+table.bestTable thead th:first-child {
+  border-left: none;
+}
+
+table.bestTable tfoot td {
+  font-size: 13px;
+}
+table.bestTable tfoot .links {
+  text-align: right;
+}
+table.bestTable tfoot .links a{
+  display: inline-block;
+  background: #FFFFFF;
+  color: #24943A;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+table.blueTable {
+    border: 1px solid #1C6EA4;
+    background-color: #EEEEEE;
+    width: 80%;
+    height: 20px;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+table.blueTable td,
+table.blueTable th {
+    border: 1px solid #AAAAAA;
+    padding: 1px 1px;
+}
+
+table.blueTable tbody td {
+    font-size: 13px;
+}
+
+table.blueTable tr:nth-child(even) {
+    background: #D0E4F5;
+}
+
+table.blueTable thead {
+    background: #1C6EA4;
+    background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+    background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+    background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+    border-bottom: 1px solid #444444;
+}
+
+table.blueTable thead th {
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFFFFF;
+    border-left: 1px solid #D0E4F5;
+}
+
+table.blueTable thead th:first-child {
+    border-left: none;
+}
+
+table.blueTable tfoot td {
+    font-size: 14px;
+}
+
+table.blueTable tfoot .links {
+    text-align: right;
+}
+
+table.blueTable tfoot .links a {
+    display: inline-block;
+    background: #1C6EA4;
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+
+#main{
+  position:absolute;
+  width:1600px;
+  height:900px;
+  border:1px solid black;
+  padding:5px;
+}
+#main > div{
+  float:left;
+  margin:15px;
+}
+#d1{
+  width:825px;
+  /*height:500px;*/
+  border:1px solid red;
+}
+#d2{
+  width:300px;
+  /*height:200px;*/
+  border:1px solid blue;
+}
+#d3{
+  width:200px;
+  height:200px;
+  border:1px solid green;
+}
+
+#scrl ul{height:450px; width:243px;}
+#scrl ul{overflow:hidden; overflow-y:scroll;}
+
+.search {
+    width : 150px;
+    height: 30px;
+}

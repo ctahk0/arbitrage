@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="fonts/cryptocoins.css"> 
+    <link rel="stylesheet" href="fonts/cryptocoins-colors.css">
+
+</head>
+
+<body>
+    <script> 
+        var btc = document.getElementById('totalDiff');
+    </script> 
+    
+        <table class="topazCells">
+            <tbody>
+                <tr>
+                    <td>Currency pair</td>
+                    <td>Bitfinex</td>
+                    <td>Poloniex</td>
+                </tr>
+                <tr>
+                    <td>BTCUSD</td>
+                    <td id="totalDiff">0.0</td>
+                    <td id="btc">0.0</td>
+                </tr>
+                <tr>
+                    <td>ETHUSD</td>
+                    <td id="eth">0.0</td>
+                    <td id="eth1">0.0</td>
+                </tr>
+            </tbody>
+        </table>
+
+<div class="loader"></div>
+
+
+<section id="service">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block-top">
+                    <div class="service-header">
+
+                        <div class="socket-loader"></div>
+
+                        <div class="best-pair wow animated fadeIn">
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div><!-- .col-md-12 close -->
+        </div><!-- row close -->
+        <div class="row">
+            <div class="col-md-12 b-bot">
+                <div class="block-bottom">
+                    <div class="service-tab ">
+                        <!-- Nav tabs -->
+                        <div class="left-panel col-md-4 col-xs-12  wow animated fadeInLeft">
+                            <div class="market-names-list col-md-12 col-xs-6">
+                                <h1 id="markets-title">Markets: <input class="search" id="market-search"></h1>
+                                <ul class="badhon-tab " id="market-list" role="tablist">
+                                    <li class="active">
+                                        <a href="#" aria-controls="home" role="tab" data-toggle="tab">
+                                            <i class="fa fa-check-square-o"></i>Loading...</a>
+                                    </li>
+                                </ul>
+                                <a class="remove-all" href="javascript:addRemoveAll('markets')">Check/Un-check all</a>
+                            </div>
+
+                            <div class="coin-names-list col-md-12 col-xs-6">
+                                <h1 id="coins-title">Coins: <input class="search" id="coin-search"></h1>
+
+                                <ul id='coin-list' class="badhon-tab" role="tablist">
+                                    <li class="active">
+                                        <a href="#" aria-controls="home" role="tab" data-toggle="tab">
+                                            <i class="fa fa-check-square-o"></i>Loading...</a>
+                                    </li>
+                                </ul>
+                                <a class="remove-all" href="javascript:addRemoveAll('coins')">Check/Un-check all</a>
+                            </div>
+                        </div>
+
+                        <!-- Tab panes -->
+                        <div class="tab-pane active edit-tab col-md-8 col-xs-12" id="home">
+                            <div class="app-pane">
+                                <h1>Highest price differences + pairs</h1>
+
+                                <p class="loadNumber"> Load top <input class="loadNumberInput" placeholder="5"> coins
+                                </p>
+                                <div class="socket-loader"></div>
+                                <ul id="highest"></ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .col-md-12 close -->
+        </div><!-- row close -->
+    </div><!-- .container close -->
+</section><!-- #service close -->
+
+
+<script id="coin-list-template" type="text/x-handlebars-template">
+    <li class="active">
+        <a href="javascript:addRemoveCoin('{{coin}}')" aria-controls="home" role="tab" data-toggle="tab">
+            <i class="fa fa-check-square-o" id="check-{{coin}}"> </i> <span>{{coin}} </span> </a>
+    </li>
+</script>
+
+
+<script id="market-list-template" type="text/x-handlebars-template">
+    <li class="active">
+        <a href="javascript:addRemoveMarket('{{market}}')" aria-controls="home" role="tab" data-toggle="tab">
+            <i class="fa fa-check-square-o" id="check-{{market}}"></i> {{market}}</a>
+    </li>
+</script>
+
+<script id="high-template" type="text/x-handlebars-template">
+    <li class="coin-info-high " data-coin="{{coin}}" data-market1="{{market1}}" data-market2="{{market2}}">
+        <h1>Transfer <strong>{{coin}}</strong> from <strong>{{market1}}</strong> to <strong> {{market2}}</strong> for a
+            profit of
+            <strong> {{diff}}%</strong></h1>
+        <div class="coin">
+            <i class="cc-{{coin}} {{coin}} cc"> </i>
+            <p class="coin-name">{{coin}}</p>
+            <p class="coin-prices wow animated fadeIn">{{diff}}%</p>
+            <p class="coin-markets">
+                <a>{{market1}}</a>: {{market1price}}<span class="mBTC">mBTC</span>
+                <i class="fa fa-long-arrow-right"></i>
+                <a>{{market2}}</a>: {{market2price}}<span class="mBTC">mBTC</span>
+            </p>
+        </div>
+        <a href="javascript:history('{{coin}}');">Show history</a> <a class="remove" href="#!" onclick="remove(this, 'high')">
+        Remove this opportunity </a>
+    </li>
+    <li class="coin-info-low" data-coin="{{pair.coin}}" data-market1="{{pair.market1}}" data-market2="{{pair-market2}}">
+        <h1>sell for <strong>{{pair.coin}}</strong> and transfer back to <strong> {{pair.market2}}
+            ({{pair.diff}}%)</strong>
+        </h1>
+        <div class="coin">
+            <i class="cc-{{pair.coin}} {{pair.coin}} cc"> </i>
+            <p class="coin-name">{{pair.coin}}</p>
+            <p class="coin-prices">{{pair.diff}}%</p>
+            <p class="coin-markets"><a>{{pair.market1}}</a>: {{pair.market1price}}<span class="mBTC">mBTC</span> <i
+                    class="fa fa-long-arrow-right"></i> <a>{{pair.market2}}</a>: {{pair.market2price}}<span
+                    class="mBTC">mBTC</span>
+            </p>
+        </div>
+        <a href="javascript:history({{pair.coin}}');">Show history</a> <a class="remove" href="#!" onclick="remove(this, 'low')">Remove
+        this opportunity</a>
+    </li>
+</script>
+
+<script id="best-template" type="text/x-handlebars-template">
+
+    <h1 class="best-pair-title">Total profit: <strong>{{totalDiff}}%</strong></h1>
+    <div class="coin-info">
+        <div class="coin-info-high">
+            <h1>Transfer <strong>{{coin}}</strong> from <strong>{{market1}}</strong> to
+                <strong>{{market2}}</strong><strong>
+                    ({{diff}}%)</strong>
+            </h1>
+            <div class="coin">
+                <i class="cc-{{coin}} {{coin}} cc"> </i>
+                <p class="coin-name">{{coin}}</p>
+                <p class="coin-prices">{{diff}}%</p>
+                <p class="coin-markets"><a>{{market1}}</a>: {{market1price}} <i class="fa fa-long-arrow-right"></i> <a>{{market2}}</a>:
+                    {{market2price}}
+                </p>
+            </div>
+        </div>
+        <div class="coin-info-low">
+            <h1>sell for <strong>{{pair.coin}}</strong> and transfer back to <strong> {{pair.market2}}
+                ({{pair.diff}}%)</strong>
+            </h1>
+            <div class="coin">
+                <i class="cc-{{pair.coin}} {{pair.coin}} cc"> </i>
+                <p class="coin-name">{{pair.coin}}
+                </p>
+                <p class="coin-prices">{{pair.diff}}%</p>
+                <p class="coin-markets"><a>{{pair.market1}}</a>: {{pair.market1price}} <i
+                        class="fa fa-long-arrow-right"></i> <a>{{pair.market2}}</a>: {{pair.market2price}}
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <a href="javascript:history('{{coin}}', '{{pair.coin}}');">Show history</a>
+</script>
+
+
+<script defer src="js/jquery-1.11.2.min.js"></script>
+<script defer src="js/handlebars.js"></script>
+<script defer src="js/wow.min.js"></script>
+<!--<script defer src="js/bootstrap.min.js"></script>-->
+<script defer src="js/socket.io.js"></script>
+<script defer src="js/script.js"></script>
+
+</body>
+</html>

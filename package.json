@@ -1,0 +1,44 @@
+{
+  "name": "arbitko",
+  "version": "1.0.0",
+  "description": "Arbitrage finder",
+  "main": "main.js",
+  "engines": {
+    "node": "8.0.0"
+  },
+  "dependencies": {
+    "bitfinex-api": "^0.2.3",
+    "bluebird": "^3.5.0",
+    "express": "^4.16.2",
+    "helmet": "^3.6.1",
+    "import": "0.0.6",
+    "mongodb": "^2.2.30",
+    "mongoose": "^4.11.5",
+    "pm2": "^2.6.1",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.2",
+    "socket.io": "^2.0.3"
+  },
+  "scripts": {
+    "test": "node main",
+    "start": "node main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manu354/crypto-arbitrage.git"
+  },
+  "keywords": [
+    "bittrex",
+    "arbitrage"
+  ],
+  "author": "Stanko Ljuboja",
+  "license": "MIT",
+  "homepage": "https://github.com/manu354/crypto-arbitrage#readme",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/manu354/crypto-arbitrage/issues"
+  }
+}
