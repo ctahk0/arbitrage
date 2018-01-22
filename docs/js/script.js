@@ -3,6 +3,16 @@
 
 //alert("Needs to be run locally.");
 //$(document).ready(function(){
+      var jsonURL = "https://bittrex.com/api/v1.1/public/getmarkets";
+      $.getJSON(jsonURL, function (json)
+      {
+        var imgList= "";
+        $.each(json.result, function () {
+          imgList += '<li><img src= "' + this.LogoUrl + '"></li>';
+        });
+       $('#dvProdList').append(imgList);
+      });
+
         $('button').click(function(){
             
             $.get('http://localhost:8080/_dev/tradingbot/bitfinex/bitfinex.php', function(b) {

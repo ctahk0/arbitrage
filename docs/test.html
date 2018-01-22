@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="table.css">
+	<title>test</title>
+	<script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="dvProdList">
+	<ul id="lista"></ul>
+</div>
+
+<script>
+$(document).ready(function(){
+	// $.getJSON("https://bittrex.com/api/v1.1/public/getmarkets", function(result){
+ //        $.each(result, function(i, field){
+ //            $("dvProdList").append(field + " ");
+ //        });
+ //    });
+		// $.get('https://bittrex.com/api/v1.1/public/getmarkets', function(data) {
+  //       	document.write(data);
+  //       });
+    var jsonURL = "https://bittrex.com/api/v1.1/public/getmarkets";
+      $.getJSON(jsonURL, function (json)
+      {
+        var imgList= "";
+        $.each(json.result, function () {
+          imgList += '<li class="coins"><img src= "' + this.LogoUrl + '"> ' + this.MarketCurrencyLong + ' (' + this.MarketCurrency + ')</li>';
+        });
+       $('#lista').append(imgList);
+      });
+});
+</script>
+
+
+
+</body>
+</html>

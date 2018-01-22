@@ -36,6 +36,7 @@
                             <i class="fa fa-check-square-o"></i>Loading...</a>
                     </li>
                 </ul>
+                <a class="remove-all" href="javascript:addRemoveAll('coins')">Check/Un-check all</a>
             </div>
         </div>
     </div>
@@ -49,6 +50,7 @@
                    <li id="eth"></li> 
                 </ul>
             </div>>
+            <div id="dvProdList"></div>
     </div>
 </div>    
 
@@ -57,8 +59,10 @@
 
 <script id="coin-list-template" type="text/x-handlebars-template">
     <li class="active">
+
         <a href="javascript:addRemoveCoin('{{coin}}')" aria-controls="home" role="tab" data-toggle="tab">
-            <i class="fa fa-check-square-o" id="check-{{coin}}"> </i> <span>{{coin}} </span> </a>
+            <i class="fa fa-check-square-o" id="check-{{coin}}"> </i> <span><img src="../images/{{coin}} - 1.png" width=15> {{coin}} </span> </a>
+            <!-- <span id="test"><img src="../images/{{coin}}.png" valign="right" align="absmiddle" width="30" height="30"></span> -->
     </li>
 </script>
 
