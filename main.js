@@ -20,6 +20,8 @@ app.use(helmet.hidePoweredBy({setTo: 'PHP/5.4.0'}));
 const port = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/docs'));
+//app.use('/public', express.static(__dirname + "/docs"));
+// app.use(express.static(__dirname + '/docs/images'));
 
 http.listen(port, function () {
     console.log('listening on', port);
@@ -28,18 +30,18 @@ http.listen(port, function () {
 
 require('./settings.js')(); //Includes settings file.
 
-var bl = require('./bitfinexauth.js');
-app.get('/ajmo', function (req, res) {
-    promiseRequest(bl.options) 
-        .then(function(response) {
-            var obj = JSON.parse(response);
-            //res.json(obj);
-            console.log("Odgovor promise", response);
-        })
-        .catch(function(err) {
-            console.log("Errorcina", err);
-        })
-});
+// var bl = require('./bitfinexauth.js');
+// app.get('/ajmo', function (req, res) {
+//     promiseRequest(bl.options) 
+//         .then(function(response) {
+//             var obj = JSON.parse(response);
+//             //res.json(obj);
+//             console.log("Odgovor promise", response);
+//         })
+//         .catch(function(err) {
+//             console.log("Errorcina", err);
+//         })
+// });
 
 // Ovo je sa callback funkcijom                    
 //                return request.post(options,

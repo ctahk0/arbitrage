@@ -4,3 +4,5 @@ npm-debug.log*
 node_modules/
 package-lock.json
 bitfinexauth.js
+docs/php/config.php
+docs/img/
